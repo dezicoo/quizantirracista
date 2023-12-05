@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Quiz.css" type="text/css">
+    <title>Quiz</title>
+    <script>
+        var pos = 0, test, verificar, question, choices, correct = 0, userScore = 0;
+
+        var alternativa = [
+            {
+                alternativa: "<h2>Você costuma realizar práticas antirracistas?",
+                options: ["Sim, sempre!", "Sim, frequentemente", "Ás vezes", "Raramente", "Nunca"],
+                scores: [5, 4, 3, 1, 0],
+            },
+            {
+                alternativa: "<h2>Você possui esteriótipos relacionados a cor e raça?",
+                options: ["Sim", "Não"],
+                scores: [2, 5],
+            },
+            {
+                alternativa: "<h2>Você trata as diferentes etnias de forma igualitária?",
+                options: ["Sim", "Não", "Ás vezes"],
+                scores: [5, 1, 3],
+            },
+            {
+                alternativa: "<h2>Supondo que você fosse dono de uma empresa comercial, você teria preferência em contratar pessoas de um certo tipo de etnia?",
+                options: ["Com certeza!", "Provavelmente sim", "Depende", "Dificilmente", "Não! Não tenho preferências"],
+                scores: [1, 2, 3, 4, 5],
+            },
+            {
+                alternativa: "<h2>Você acredita que uma pessoa de etnia parda ou negra é mais propensa a cometer um crime?",
+                options: ["Sim, os negros são muito mais violentos e sem caráter que os brancos!", "Sim, pelo fato de sua grande maioria viverem em regiões violentas e pobres como favelas", "Depende das circunstâncias", "Não, os brancos podem ser piores que os negros!", "Não, as chances de ambos são as mesmas!"],
+                scores: [1, 4, 3, 2, 5],
+            }
+        ];
+
+        function get(x) {
+            return document.getElementById(x);
+        }
+
+        function startQuiz() {
+            get("startScreen").style.display = "none";
+            get("test").style.display = "block"; 
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            test = get("test");
+            if (pos >= alternativa.length) {
+                showComment();
+                pos = 0;
+                correct = 0;
+                userScore = 0;
+                return false;
+            }
+
+            get("verificar").innerHTML = "<h2><center>Pergunta " + (pos + 1) + " de " + alternativa.length + "</h2></center>";
+
+            question = alternativa[pos].alternativa;
+            choices = alternativa[pos].options;
+
+            test.innerHTML = "<h2>" + question + "</h2>";
+            for (var i = 0; i < choices.length; i++) {
+                test.innerHTML += "<h3><label><input type='radio' name='choices' value='" + i + "'> " + choices[i] + "</label></h3>";
+            }
+            test.innerHTML += "<br><button id='verificarResposta' onclick='checkAnswer()'>Verificar resposta</button>";
+        }
+
+        function checkAnswer() {
+            var selectedOption = document.querySelector('input[name="choices"]:checked');
+            if (selectedOption) {
+                var choice = parseInt(selectedOption.value);
+                var score = alternativa[pos].scores[choice];
+                userScore += score;
+                pos++;
+                renderQuestion();
+                window.scrollTo(0, 0); 
+            } else {
+                alert("Marque uma alternativa antes de avançar.");
+            }
+        }
+
+        function showComment() {
+            test.innerHTML =  "" ;
+
+            var comment = "";
+            if (userScore >= 22) {
+                comment = "<h2>Parabéns! O racismo presente em você é muito baixo! Contiue assim, sempre evoluindo!";
+            } else if (userScore <= 5) {
+                comment = "<h2>Infelizmente você tem um alto grau de racismo, porém, nunca é tarde demais para evoluir socialmente como pessoa, desde que você queira, você vai conseguir!";
+            } else if(userScore > 5 && userScore <= 10) {
+                comment = "<h2>Infelizmente seu grau de racismo é alto, porém é totalmente possível reverter esta pontuação tentanto melhorar como pessoa cada dia mais, não se preucupe, se você deseja, você conseguirá!";
+            }
+            else if(userScore > 10 && userScore <= 15) {
+                comment = "<h2>Você tem um médio grau de racismo. Experimente observar suas dificuldades e enfrenta-las quando possível, isso vai te ajudar a evoluir e alcançar um patamar melhor ainda!";
+            }else{
+                comment = "<h2>Você tem um baixo grau de racismo, parabéns! Ainda é possível melhorar, como incluir mais hábitos ou mais tempo em atitudes de prevenção ao racismo. Continue evoluindo!"
+            }
+
+         
+            
+
+            test.innerHTML += "<p>" + comment + "</p>";
+        }
+    </script>
+</head>
+<body>
+    <div id="startScreen">
+        <h1 id="inicio">Realize o teste abaixo para calcularmos o nível de racismo presente em você, lembrando que isso é apenas um teste. Os resultados podem não definir quem você é de verdade. Clique em "Iniciar" para começar o teste</h1>
+        <button onclick="startQuiz()">Iniciar</button>
+    </div>
+    <h2 id="verificar"></h2>
+    <div id="test"style="display: none;"></div>
+</body>
+</html>

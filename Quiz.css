@@ -1,0 +1,119 @@
+#test {
+    border: #0000FF 3px solid;
+    padding: 10% 40% 15% 10%;
+    background-image: url(educacao-antirracista.jpeg);
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 50%;
+}
+h3#verificarResposta{
+    color:black
+}
+#startScreen{
+    border: #00ff1e 3px solid;
+    padding: 15% 40% 15% 10%;
+    width: 50%;
+    background-image: url(Combate_a_Discriminacao_Racial_Julho.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+#inicio{
+    color: #000000;
+}
+
+
+
+.verificar {
+    color: black;
+}
+
+body {
+    background-image: url(AdobeStock_354682001-1920x1280.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+h1 {
+    color: white;
+}
+
+h3 {
+    font-weight: normal;
+    color: aqua;
+    opacity: 100%;
+}
+
+h2 {
+    color: white;
+    opacity: 100%;
+}
+@media only screen and (max-width: 1280px) and (orientation: portrait){
+#test {
+    border: #0000FF 3px solid;
+    padding: 25% 40% 65% 10%;
+    background-image: url(educacao-antirracista.jpeg);
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 50%;
+}
+h3#verificarResposta{
+    color:black
+}
+#startScreen{
+    border: #00ff1e 3px solid;
+    padding: 15% 40% 15% 10%;
+    width: 50%;
+    max-width: 100%;
+    height: auto; 
+    background-image: url(racismo-mulher-sofrendo-dedos-apontados-1686679566892_v2_1x1.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(1, 1, 1, 0); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+#inicio{
+    color: rgb(0, 0, 0);
+}
+
+
+
+.verificar {
+    color: black;
+}
+
+body {
+    background-image: url(AdobeStock_354682001-1920x1280.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center
+   
+}
+
+h1 {
+    color: white;
+}
+
+h3 {
+    font-weight: normal;
+    color: aqua;
+    opacity: 100%;
+}
+
+h2 {
+    color: white;
+    opacity: 100%;
+}
+}
